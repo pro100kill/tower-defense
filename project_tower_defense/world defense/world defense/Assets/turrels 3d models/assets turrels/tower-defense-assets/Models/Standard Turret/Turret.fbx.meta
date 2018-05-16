@@ -1,17 +1,23 @@
 fileFormatVersion: 2
-guid: c4efcaf7ddd5c024a9bc808f54e57ac4
+guid: f3f578b12fb4bb948b6edab9ef407dff
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: default
+    100002: Turret
+    100004: Turret.001
     400000: //RootNode
-    400002: default
-    2100000: Automated_Turret
-    2100002: Turret_Shield
-    2300000: default
-    3300000: default
-    4300000: default
+    400002: Turret
+    400004: Turret.001
+    2100000: Turret_Metal
+    2100002: Turret_Metal2
+    2100004: Turret_GunMetal
+    2300000: Turret
+    2300002: Turret.001
+    3300000: Turret
+    3300002: Turret.001
+    4300000: Turret.001
+    4300002: Turret
   externalObjects: {}
   materials:
     importMaterials: 1
