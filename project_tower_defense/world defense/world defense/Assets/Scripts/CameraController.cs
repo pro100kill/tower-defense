@@ -11,19 +11,19 @@ public class CameraController : MonoBehaviour {
     public float maxY = 80f;
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey("a")|| Input.mousePosition.y >= Screen.height - panBorder)
+		if (Input.GetKey("a"))
         {
             transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);
         }
-        if (Input.GetKey("d") || Input.mousePosition.y <=  panBorder)
+        if (Input.GetKey("d"))
         {
             transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);
         }
-        if (Input.GetKey("w") || Input.mousePosition.x >= Screen.width - panBorder)
+        if (Input.GetKey("w"))
         {
             transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
         }
-        if (Input.GetKey("s") || Input.mousePosition.x <=  panBorder)
+        if (Input.GetKey("s"))
         {
             transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World);
         }

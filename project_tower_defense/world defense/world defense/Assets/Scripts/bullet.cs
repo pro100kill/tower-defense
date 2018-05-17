@@ -31,12 +31,18 @@ public class bullet : MonoBehaviour {
             return;
         }
         transform.Translate(diraction.normalized * distanceframe, Space.World);
+        transform.LookAt(target);
 	}
     void HiTarget()
     {
         GameObject effect = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effect, 1f);
-        Destroy(target.gameObject);
+
+        Damage(target);
        // Destroy(gameObject);
+    }
+    void Damage(Transform enemy)
+    {
+        Destroy(enemy.gameObject);
     }
 }

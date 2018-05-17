@@ -21,6 +21,8 @@ public class NewBehaviourScript : MonoBehaviour {
         }
         countdown -= Time.deltaTime;
 
+       // countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+        //waveCountdownText.text = string.Format("{ 0:00.00}", countdown);
         waveCountdownText.text = Mathf.Round(countdown).ToString();
 
     }
