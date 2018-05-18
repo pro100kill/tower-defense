@@ -6,17 +6,26 @@ public class turret : MonoBehaviour {
 
 
     private Transform target;
+    private Enemy enemyTarget;
 
-    [Header("Attributes")]
+    [Header("Общие")]
     public float range = 15f;
+
+    [Header("Use bullets")]
+    public GameObject bulletPrefabs;
     public float fireRate = 1f;
     private float fireCountdown = 0f;
+    [Header("Use Laser")]
+    public int damageOverTime = 30;
+    public bool useLaser = false;
+    public LineRenderer lineRenderer;
+
     [Header("Unity Setup Fields")]
     public string enemyTag = "Enemy";
     public Transform partToRotate;
     public float turnspeed = 10f;
 
-    public GameObject bulletPrefabs;
+    
     public Transform firePoint;
 
    
@@ -42,6 +51,7 @@ public class turret : MonoBehaviour {
         if(nearEnemy != null && shortDistance <= range)
         {
             target = nearEnemy.transform;
+            enemyTarget= nearEnemy.GetComponent<Enemy>();
         } else
         {
             target = null;
@@ -51,19 +61,51 @@ public class turret : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (target == null)
+        {
+            if (useLaser)
+            {
+                if (lineRenderer.enabled)
+                    lineRenderer.enabled = false;
+            }
             return;
+        }
+            
+
+        LookOnTarget();
+
+        if (useLaser)
+        {
+            Laser();
+        }else
+        {
+            if (fireCountdown <= 0f)
+            {
+                Shoot();
+                fireCountdown = 1f / fireRate;
+            }
+            fireCountdown -= Time.deltaTime;
+        }
+
+
+        
+    }
+    void LookOnTarget()
+    {
         // взятие цели
         Vector3 diraction = target.position - transform.position;
         Quaternion lookRotate = Quaternion.LookRotation(diraction);   // исп. для записи вращения
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotate, Time.deltaTime * turnspeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0f,rotation.y,0f);
+        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+    }
+    void Laser()
+    {
+        enemyTarget.TakeDamage(damageOverTime*Time.deltaTime);
 
-        if(fireCountdown <= 0f)
-        {
-            Shoot();
-            fireCountdown = 1f / fireRate;
-        }
-        fireCountdown -= Time.deltaTime;
+        if (!lineRenderer.enabled)
+            lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, firePoint.position);
+        lineRenderer.SetPosition(1, target.position);
+
     }
     void Shoot()
     {
