@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
@@ -15,6 +16,9 @@ public class Enemy : MonoBehaviour {
     private Transform target;
     private int waveWayPointIndex = 0;
 
+    [Header("Stuff")]
+    public Image healthBar;
+
     void Start()
     {
         health = startHealth;
@@ -23,7 +27,10 @@ public class Enemy : MonoBehaviour {
 
     public void TakeDamage(float amount)
     {
+
         health -= amount;
+
+        healthBar.fillAmount = health / startHealth;
         if (health <= 0 && !isDead)
         {
             Die();

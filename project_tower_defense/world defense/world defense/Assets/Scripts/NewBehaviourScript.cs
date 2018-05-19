@@ -30,7 +30,9 @@ public class NewBehaviourScript : MonoBehaviour {
 
     IEnumerator SpawnWave() // исп. паралельно в течении некоторого времени
     {
+
         waveNumber++;
+        PlayerStat.Rounds++;
         for (int i = 0; i < waveNumber; i++)
         {
             spawnEnemy();

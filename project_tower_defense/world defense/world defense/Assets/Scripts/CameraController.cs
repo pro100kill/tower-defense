@@ -11,6 +11,11 @@ public class CameraController : MonoBehaviour {
     public float maxY = 80f;
 	// Update is called once per frame
 	void Update () {
+        if (GameManager1.gameEnd)
+        {
+            this.enabled = false;
+            return;
+        }
 		if (Input.GetKey("a"))
         {
             transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);
