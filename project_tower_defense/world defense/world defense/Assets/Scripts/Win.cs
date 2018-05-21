@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
-public class GameOver : MonoBehaviour {
+public class Win : MonoBehaviour {
 
     public Text roundsText;
-    
+    public SceneFader sceneFader;
+
     void OnEnable()
     {
         roundsText.text = PlayerStat.Rounds.ToString();
     }
+    public void Continue()
+    {
+        sceneFader.FadeTo(3);
 
+    }
     public void Retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -22,5 +26,4 @@ public class GameOver : MonoBehaviour {
         Debug.Log("Menu");
         SceneManager.LoadScene(0);
     }
-    
 }

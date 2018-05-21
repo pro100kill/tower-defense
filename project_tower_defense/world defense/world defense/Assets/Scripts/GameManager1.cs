@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 public class GameManager1 : MonoBehaviour {
 
     public static bool gameEnd;
-   // public SceneFader sceneFader;
+   
     public GameObject gameOverUI;
     public GameObject WIN;
+    //public SceneFader sceneFader;
 	// Update is called once per frame
     void Start()
     {
@@ -36,6 +37,8 @@ public class GameManager1 : MonoBehaviour {
     {
         gameEnd = true;
         WIN.SetActive(true);
+        //sceneFader.FadeTo(3);
+
         //Debug.Log("WON");
        // SceneManager.LoadScene(3);
     }

@@ -3,21 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-public class Win : MonoBehaviour {
+
+public class GameOver : MonoBehaviour {
 
     public Text roundsText;
-
+    public SceneFader sceneFader;
     void OnEnable()
     {
         roundsText.text = PlayerStat.Rounds.ToString();
     }
+
     public void Retry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        sceneFader.FadeTo(SceneManager.GetActiveScene().buildIndex);
+
     }
     public void Menu()
     {
         Debug.Log("Menu");
-        SceneManager.LoadScene(0);
+        sceneFader.FadeTo(0);
+        //SceneManager.LoadScene(0);
     }
+    
 }
