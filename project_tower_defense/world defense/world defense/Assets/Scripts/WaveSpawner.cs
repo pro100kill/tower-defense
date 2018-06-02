@@ -18,7 +18,9 @@ public class WaveSpawner : MonoBehaviour {
     {
         if(EnemyAlive > 0)
         {
+             
             return;
+            
         }
         if (waveNumber == waves.Length)
         {

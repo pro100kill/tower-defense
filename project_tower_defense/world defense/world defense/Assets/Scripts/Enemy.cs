@@ -16,8 +16,10 @@ public class Enemy : MonoBehaviour {
     private Transform target;
     private int waveWayPointIndex = 0;
 
+    
     [Header("Stuff")]
     public Image healthBar;
+
 
     void Start()
     {
@@ -62,8 +64,9 @@ public class Enemy : MonoBehaviour {
         {
             NextWayPoint();
         }
+        transform.LookAt(target);
     }
-
+    
     void NextWayPoint()
     {
         if(waveWayPointIndex >= Waypoints.waypoint.Length - 1 )

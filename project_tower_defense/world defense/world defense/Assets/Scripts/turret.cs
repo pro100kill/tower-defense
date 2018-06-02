@@ -10,6 +10,7 @@ public class turret : MonoBehaviour {
 
     [Header("Общие")]
     public float range = 15f;
+    
 
     [Header("Use bullets")]
     public GameObject bulletPrefabs;
@@ -19,6 +20,8 @@ public class turret : MonoBehaviour {
     public int damageOverTime = 30;
     public bool useLaser = false;
     public LineRenderer lineRenderer;
+    public AudioSource audio;
+    public AudioClip audioClip;
 
     [Header("Unity Setup Fields")]
     public string enemyTag = "Enemy";
@@ -100,7 +103,7 @@ public class turret : MonoBehaviour {
     void Laser()
     {
         enemyTarget.TakeDamage(damageOverTime*Time.deltaTime);
-
+        audio.PlayOneShot(audioClip);
         if (!lineRenderer.enabled)
             lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, firePoint.position);
@@ -111,6 +114,7 @@ public class turret : MonoBehaviour {
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefabs, firePoint.position, firePoint.rotation); //создание обьектов 
         bullet bullet1 = bulletGO.GetComponent<bullet>();
+        audio.PlayOneShot(audioClip);
         if (bullet1 != null)
         {
             bullet1.Seek(target);
