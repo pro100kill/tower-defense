@@ -14,6 +14,8 @@ public class WaveSpawner : MonoBehaviour {
     private int waveNumber = 0;
     public Text waveCountdownText;
     public GameManager1 gameMamager1;
+
+
     void Update()
     {
         if(EnemyAlive > 0)

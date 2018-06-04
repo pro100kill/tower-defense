@@ -15,9 +15,10 @@ public class GameOver : MonoBehaviour {
 
     public void Retry()
     {
+        
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         sceneFader.FadeTo(SceneManager.GetActiveScene().buildIndex);
-
+        Time.timeScale = 1f;
     }
     public void Menu()
     {

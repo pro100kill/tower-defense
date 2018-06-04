@@ -362,7 +362,7 @@ MonoBehaviour:
   useLaser: 0
   lineRenderer: {fileID: 0}
   audio: {fileID: 82404205146626930}
-  audioClip: {fileID: 8300000, guid: fecc3e7a0166a104cb810435f6fdf37b, type: 3}
+  audioClip: {fileID: 8300000, guid: 8af9b84117aab4a48ba134e04951246a, type: 3}
   enemyTag: Enemy
   partToRotate: {fileID: 4818832527874546}
   turnspeed: 10

@@ -31,6 +31,7 @@ public class PauseMenu : MonoBehaviour {
         active();
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         sceneFader.FadeTo(SceneManager.GetActiveScene().buildIndex);
+        
     }
     public void Menu()
     {
