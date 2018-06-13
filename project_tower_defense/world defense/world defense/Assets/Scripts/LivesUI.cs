@@ -8,7 +8,7 @@ public class LivesUI : MonoBehaviour {
 	
     void Update()
     {
-        LivesText.text =  "Жизни" + PlayerStat.Lives.ToString() ;
+        LivesText.text =  "Життя" + PlayerStat.Lives.ToString() ;
     }
 
 }

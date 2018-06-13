@@ -2311,8 +2311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2257da97da1f9884eb6350d9a26cb979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  startHealth: 40
+  speed: 20
+  startHealth: 51
   value: 5
   DeathEffect: {fileID: 1079815794171466, guid: df249feea63eb784c8f481649e2ab6c8,
     type: 2}
